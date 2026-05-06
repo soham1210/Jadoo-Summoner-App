@@ -64,7 +64,7 @@ export default function App() {
         ) : (
           <View style={styles.mainScreen}>
             {/* Header */}
-            <Text style={styles.header}>JADOO v1 BY ARJUN (RN)</Text>
+            <Text style={styles.header}>JADOO SUMMONER APP BY SOHAM</Text>
 
             {/* Radars */}
             <View style={styles.radarContainer}>
@@ -90,8 +90,15 @@ export default function App() {
             </View>
 
             {/* Waves */}
+            <View style={styles.sendingContainer}>
+              <Text style={styles.statusText}>SENDING</Text>
+            </View>
             <View style={styles.wavesLeft}>
               <Waves />
+            </View>
+
+            <View style={styles.receivingContainer}>
+              <Text style={styles.statusText}>RECEIVING</Text>
             </View>
             <View style={styles.wavesRight}>
               <Waves reverse />
@@ -156,10 +163,12 @@ const styles = StyleSheet.create({
   header: {
     position: 'absolute',
     top: 40,
-    right: 20,
+    left: 0,
+    right: 0,
     fontFamily: 'VT323',
     color: '#95e208',
     fontSize: 24,
+    textAlign: 'center',
   },
   garbageLeft: {
     position: 'absolute',
@@ -178,7 +187,7 @@ const styles = StyleSheet.create({
   },
   radarContainer: {
     position: 'absolute',
-    top: height / 2 - 100,
+    top: height / 2 - 170,
     left: width / 2 - 100,
     width: 200,
     height: 200,
@@ -187,13 +196,28 @@ const styles = StyleSheet.create({
   },
   wavesLeft: {
     position: 'absolute',
-    left: 20,
+    left: -40,
     top: 100,
   },
   wavesRight: {
     position: 'absolute',
-    right: 20,
+    right: -40,
     top: 100,
+  },
+  sendingContainer: {
+    position: 'absolute',
+    top: 100,
+    left: 20,
+  },
+  receivingContainer: {
+    position: 'absolute',
+    top: 100,
+    right: 20,
+  },
+  statusText: {
+    fontFamily: 'VT323',
+    color: '#95e208',
+    fontSize: 26,
   },
   prompt: {
     position: 'absolute',
