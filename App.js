@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import {
-  StyleSheet, Text, View, TouchableOpacity, ImageBackground, Animated, Easing, Dimensions
+  StyleSheet, Text, View, TouchableOpacity, ImageBackground, Animated, Easing, Dimensions, Image
 } from 'react-native';
 import { useFonts, VT323_400Regular } from '@expo-google-fonts/vt323';
 import { Audio } from 'expo-av';
@@ -58,9 +58,13 @@ export default function App() {
     <ImageBackground source={require('./assets/space.jpg')} style={styles.container} blurRadius={3}>
       <View style={styles.crtOverlay}>
         {!entered ? (
-          <TouchableOpacity style={styles.enterButton} onPress={() => setEntered(true)}>
-            <Text style={styles.enterText}>PRESS ENTER TO CONTINUE</Text>
-          </TouchableOpacity>
+          <View style={styles.welcomeContainer}>
+            <Image source={require('./assets/jadoo.png')} style={styles.jadooImage} />
+            <Text style={styles.welcomeText}>WELCOME TO JADOO SUMMONER</Text>
+            <TouchableOpacity style={styles.enterButton} onPress={() => setEntered(true)}>
+              <Text style={styles.enterText}>PRESS ENTER TO CONTINUE</Text>
+            </TouchableOpacity>
+          </View>
         ) : (
           <View style={styles.mainScreen}>
             {/* Header */}
@@ -138,7 +142,34 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
+  welcomeText: {
+    fontFamily: 'VT323',
+    color: '#95e208',
+    fontSize: 35,
+    textTransform: 'uppercase',
+    textAlign: 'center',
+    textShadowColor: '#95e208',
+    textShadowOffset: { width: 0, height: 0 },
+    textShadowRadius: 10,
+  },
+  welcomeContainer: {
+    flex: 1,
+    width: '100%',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  jadooImage: {
+    position: 'absolute',
+    top: 150,
+    width: 200,
+    height: 200,
+    borderRadius: 100,
+    borderWidth: 3,
+    borderColor: '#95e208',
+  },
   enterButton: {
+    position: 'absolute',
+    bottom: 200,
     padding: 20,
     backgroundColor: 'black',
     borderColor: '#95e208',
